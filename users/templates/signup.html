@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  body {
+    margin: 0;
+    background-color: deeppink;
+  }
+
+  .soma {
+    display: flexbox;
+    font-size: 510%;
+    font-family: sponge;
+  }
+
+  .bot {
+    display: flexbox;
+    font-size: 200%;
+    font-family: sponge;
+    align-self: baseline;
+  }
+
+  .logo {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    color: deeppink;
+    background-color: rebeccapurple;
+
+  }
+</style>
+<style>
+  .submit {
+    width: 30%;
+    margin: 7% auto;
+    font-family: sponge;
+  }
+
+  body {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: deeppink;
+    flex-wrap: wrap;
+  }
+
+  .form_container {
+    width: 96%;
+    margin: auto 0;
+  }
+
+  input {
+    margin-top: 3%;
+    width: 100%;
+    height: 16%;
+    color: deeppink;
+    font-size: 300%;
+    background-color: rebeccapurple;
+    border: deeppink solid 4px;
+  }
+
+  input:hover,
+  input:focus {
+    background-color: deeppink;
+    border: rebeccapurple solid 4px;
+    color: rebeccapurple;
+  }
+
+  input::placeholder {
+    opacity: 0.7;
+    text-align: center;
+    color: rosybrown;
+
+
+  }
+
+
+  .credentials {
+    color: rebeccapurple;
+    font-size: 490%;
+    font-family: sponge;
+  }
+
+  .capital {
+    text-transform: uppercase;
+  }
+</style>
+
+<div class="form_container">
+  <form action="signup" method="post" autocomplete="off">
+    {% csrf_token %}
+    <div class="credentials">PLEASE TYPE YOUR CREDENTIALS BELOW</div>
+    <input  type="text" placeholder="username" name="USERNAME" value="{{USERNAME}}"
+      autofocus required><br>
+    <input class="capital" type="text" placeholder="AGE" name="AGE" value="{{AGE}}"
+      autocapitalize="characters" autofocus required><br>
+    <input type="email" placeholder="STUDENT EMAIL" name="EMAIL" value="{{EMAIL}}" class="capital" autocapitalize="characters" required><br>
+    <input type="password" placeholder=" PASSWORD" name="PASS1" value="{{PASS1}}" required><br>
+    <input type="password" placeholder=" CONFIRM PASSWORD" name="PASSWORD2" value="{{PASSWORD2}}" required><br>
+    <input class="submit" type="submit" value="SUBMIT">
+  </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  @font-face {
+    font-family: sponge;
+    src: url("SpongeboyRegular-gx2n6.otf");
+  }
+
+  body {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: deeppink;
+    flex-direction: column;
+  }
+
+  .form_container {
+    width: 96%;
+    margin: auto 0;
+    display: flexbox;
+  }
+
+  input::placeholder {
+    opacity: 0.7;
+    text-align: center;
+    color: deeppink;
+  }
+
+  input {
+    margin-top: 3%;
+    width: 100%;
+    height: 16%;
+    color: deeppink;
+    font-size: 300%;
+    background-color: rebeccapurple;
+    border: deeppink solid 4px;
+  }
+  input:hover,
+  input:focus {
+    background-color: deeppink;
+    border: rebeccapurple solid 4px;
+    color: rebeccapurple;
+  }
+
+  input::placeholder {
+    opacity: 0.7;
+    text-align: center;
+    color: rosybrown;
+  }
+
+  .credentials {
+    color: rebeccapurple;
+    font-size: 490%;
+    font-family: sponge;
+  }
+
+  .credentials {
+    color: rebeccapurple;
+    font-size: 490%;
+    font-family: sponge;
+  }
+  .submit {
+    width: 30%;
+    margin: 7% auto;
+    font-family: sponge;
+  }
+</style>
+
+<div class="form_container">
+  <form action="reset_link_gen" method="post" >
+    {% csrf_token %}
+    <div class="credentials">PLEASE TYPE YOUR CREDENTIALS BELOW</div>
+    <input
+      type="email"
+      placeholder="STUDENT EMAIL"
+      name="EMAIL"
+      value="{{EMAIL}}"
+      required
+    /><br />
+  
+    <input class="submit" type="submit" value="SUBMIT" />
+  </form>
+</div>
+
+
+
+{% endblock content %}

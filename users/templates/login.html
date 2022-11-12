@@ -1,0 +1,86 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+  @font-face {
+    font-family: sponge;
+    src: url("SpongeboyRegular-gx2n6.otf");
+  }
+
+  body {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2eaed;
+    flex-direction: column;
+  }
+
+  .form_container {
+    width: 96%;
+    margin: auto 0;
+    display: flexbox;
+  }
+
+  input::placeholder {
+    opacity: 0.7;
+    text-align: center;
+    color: #1ecfd6;
+  }
+
+  input {
+    margin-top: 3%;
+    width: 100%;
+    height: 16%;
+    color: #1ecfd6;
+    font-size: 300%;
+    background-color: #02231c;
+    border: #1ecfd6 solid 4px;
+  }
+  input:hover,
+  input:focus {
+    background-color: #1ecfd6;
+    border: #000d29 solid 4px;
+    color: #000d29;
+  }
+
+  input::placeholder {
+    opacity: 0.7;
+    text-align: center;
+    color: rosybrown;
+  }
+
+  .credentials {
+    color: #5a4d4c;
+    font-size: 490%;
+    font-family: sponge;
+  }
+  .submit {
+    width: 30%;
+    margin-left: 36%;
+    font-family: sponge;
+  }
+</style>
+
+<div class="form_container">
+  <form action="login" method="post" >
+    {% csrf_token %}
+    <div class="credentials">PLEASE TYPE YOUR CREDENTIALS BELOW</div>
+    <input
+      type="email"
+      placeholder="STUDENT EMAIL"
+      name="EMAIL"
+      value="{{EMAIL}}"
+      required
+    /><br />
+    <input
+      type="password"
+      placeholder=" PASSWORD"
+      name="PASS1"
+      value="{{PASS1}}"
+      required
+    /><br />
+    <input type="hidden" name="redirect" value="{{redirect}}">
+
+    <input class="submit" type="submit" value="SUBMIT" />
+  </form>
+</div>
+{%endblock content%}
